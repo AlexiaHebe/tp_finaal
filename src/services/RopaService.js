@@ -1,5 +1,7 @@
 const RopaModel = require("../models/RopaModel");
 
+//getRopaByService//
+
 const getRopaService = async () => {
   const Ropas = await RopaModel.find();
   return Ropas;
@@ -26,6 +28,8 @@ const getRopaByTelaService = async (Tela) => {
   return Ropas;
 };
 
+//assRopaByService//
+
 const addRopaService = async (req) => {
   const Ropa = req.body;
   Ropa.imagen = req.imagen;
@@ -33,6 +37,8 @@ const addRopaService = async (req) => {
   await newRopa.save();
   return `Se agregó la Ropa ${Ropa.nombre}`;
 };
+
+//updateRopaByService//
 
 const updateRopaService = async (req) => {
   const { id } = req.params;
@@ -52,6 +58,8 @@ const updateRopaService = async (req) => {
 
   return `se modificaron los datos de la Ropa id= ${Ropa.id}`;
 };
+
+//deleteRopaByService//
 
 const deleteRopaService = async (req) => {
   const id = req.params.id;
